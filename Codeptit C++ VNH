@@ -2910,3 +2910,1147 @@ int main()
   else cout<<"NO\n";
    }
 }
+CHIA HẾT CHO 5
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        string s;
+        cin>>s;
+        int x = 0 ;
+        int l = s.size();
+        for(int i = 0 ; i<l ; i++ ) {
+            x = (2*x + s[i] - '0') % 5;
+        }
+        if(x % 5 == 0) cout<<"Yes\n";
+        else cout<<"No\n";
+    }
+
+}
+CPP0321 - HIỆU HAI SỐ NGUYÊN LỚN
+#include <bits/stdc++.h>
+using namespace std;
+    int main (){
+        int t;
+        cin>>t;
+        while(t--){
+        string s1,s2;
+        cin>>s1>>s2;
+        string result = "";
+        while(s1.size() < s2.size()) s1 = "0" + s1;
+        while(s2.size() < s1.size()) s2 = "0" + s2;
+        int l1 = s1.size();
+        if(s1 < s2) swap(s1,s2);
+        int pnho = 0;
+        for(int i=l1 -1 ; i>=0 ; i--) {
+            int hieusub = s1[i] - s2[i] - pnho ;
+            if(hieusub < 0) {result = char((hieusub + 10) + '0') + result;pnho =1;}
+            else {result = char(hieusub + '0') + result;pnho=0;}
+
+        }
+        cout<<result<<endl;
+        }}
+  CPP0322 - TỔNG HAI SỐ NGUYÊN LỚN
+  #include <bits/stdc++.h>
+using namespace std;
+    int main (){
+        int t;
+        cin>>t;
+        while(t--){
+        string s1,s2;
+        cin>>s1>>s2;
+        string result = "";
+        while(s1.size() < s2.size()) s1 = "0" + s1;
+        while(s2.size() < s1.size()) s2 = "0" + s2;
+        int l1 = s1.size();
+        if(s1 < s2) swap(s1,s2);
+        int pnho = 0;
+        for(int i=l1 -1 ; i>=0 ; i--) {
+            int tongsub = (s1[i]-'0') + (s2[i]-'0') + pnho ;
+            if(tongsub >= 10) {
+                tongsub = tongsub%10;
+                result = char(tongsub + '0') + result;pnho =1;}
+            else {result = char(tongsub + '0') + result;pnho=0;}
+
+        }
+        if(pnho == 1) result = "1" + result;
+        cout<<result<<endl;
+        }}
+  PHÉP CHIA DƯ CỦA SỐ NGUYÊN LỚN
+  #include<bits/stdc++.h>
+using namespace std;
+long long modul(string N, long long M) {
+    int l = N.size();
+    long long kq  = 0;
+    for(int i=0 ; i<l ;i++ ) {
+        kq = (kq*10 + N[i]-'0');
+        kq %= M;
+    }
+    return kq;
+}
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+    string N;
+    long long M;
+    cin>>N>>M;
+    cout<<modul(N,M)<<endl;
+    }}
+  CPP0324 - PHÉP CHIA DƯ CỦA LŨY THỪA SỐ NGUYÊN LỚN
+  #include<bits/stdc++.h>
+using namespace std;
+long long modul(string N, long long M) {
+    int l = N.size();
+    long long kq  = 0;
+    for(int i=0 ; i<l ;i++ ) {
+        kq = (kq*10 + N[i]-'0');
+        kq %= M;
+    }
+    return kq;
+}
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+    string a;
+    long long b,m;
+    cin>>a>>b>>m;
+    long long result = 1,a1 = modul(a,m);
+    while(b>=1){
+        if(b%2 == 1) {
+            result *= a1;
+            result %= m;
+        }
+        a1*=a1;
+        a1%=m;
+        b/=2;
+    }
+    cout<<result<<endl;
+    }}
+   CPP0316 - SỐ MAY MẮN - 2
+   #include <bits/stdc++.h>
+using namespace std;
+
+int tong(int n){
+	int res = 0;
+	while(n){
+		res += n % 10;
+		n/=10;
+	}
+	return res;
+}
+
+int sum(string s){
+	int res = 0;
+	for(char x : s){
+		res += x-'0';
+	}
+	return res;
+}
+
+set<int> mm;
+
+void init(){
+	mm.insert(9);
+	for(int i = 1; i <= 1000; i++){
+		if(mm.find(tong(i)) != mm.end()){
+			mm.insert(i);
+		}
+	}
+}
+
+int main(){
+
+	init();
+	int t; cin >> t;
+	while(t--){
+		string s; 
+        cin >> s;
+		int tong = sum(s);
+		if(mm.find(tong) != mm.end())
+            cout << "1\n";
+		else cout << "0\n";
+	}
+	return 0;
+}
+CHIA HẾT CHO 8
+#include <bits/stdc++.h> 
+using namespace std; 
+string s; 
+int GiaiQuyet(int k){ 
+    int dem=0; 
+    for(int i=0;i<s.length();i++){ 
+        int n=0; 
+        for(int j=i;j<s.length();j++){ 
+            n=n*10+s[j]-'0'; n=n%k; 
+            if(n==0) dem=dem+1; } } 
+            return dem; } 
+int main(){ 
+    int T;
+    cin>>T; 
+    while(T--){ 
+        cin>>s; 
+        cout<<GiaiQuyet(8)-GiaiQuyet(24)<<endl; } }
+ ĐỊA CHỈ EMAIL - 1
+ #include<bits/stdc++.h>
+using namespace std;
+int main(){
+		string s;
+		getline(cin,s);
+		int n=s.size();
+		for(int i=0;i<n;i++){
+			if(isupper(s[i])) s[i]=tolower(s[i]);
+		}
+		int i=0,dem=0;
+		string tmp,x[100];
+		stringstream a(s);
+		while(a>>tmp){
+			x[i]=tmp;
+			i++;
+			dem++;
+		}
+		cout<<x[dem-1];
+		for(int j=0;j<dem-1;j++){
+			string m=x[j];
+			cout<<m[0];
+		}
+		cout<<"@ptit.edu.vn";
+
+	}
+  CPP0333 - CHUẨN HÓA HỌ TÊN
+  #include <bits/stdc++.h>
+using namespace std;
+int main(){
+	string s;
+	getline(cin,s);
+	for(int i=0 ;i <s.size();i++) {
+        if(isupper(s[i])) s[i] = tolower(s[i]);
+	}
+	stringstream ss(s);
+	string tmp;
+	vector<string>h;
+	while(ss >> tmp) {
+        h.push_back(tmp);
+	}
+	vector<string>::iterator ptr = h.end()-1;
+	vector<string>::iterator i = h.begin();
+	vector<string>::iterator j = h.begin();
+	string name ="";
+	string namec = *ptr;
+	for(int i=0 ; i<namec.size();i++) {
+        if(islower(namec[i])) namec[i] = toupper(namec[i]);
+	}
+	for(;i<=h.end()-2;i++) {
+        if(islower((*i)[0])) (*i)[0] = toupper((*i)[0]);
+	}
+	for(;j<=h.end()-2;j++) {
+        name = name + *j ;
+        if(j<h.end()-2) name = name + " ";
+	}
+	name = name + ", " + namec;
+	cout<<name;
+}
+CPP0307 - HIỆU CỦA HAI TẬP TỪ
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t = 0;
+	cin>>t;
+	cin.ignore();
+	while(t--) {
+        string s1,s2;
+        getline(cin,s1);
+        getline(cin,s2);
+    stringstream ss1(s1);
+	string tmp1;
+	vector<string>h1;
+	while(ss1 >> tmp1) {
+        h1.push_back(tmp1);
+	}
+	stringstream ss2(s2);
+	string tmp2;
+	vector<string>h2;
+	while(ss2 >> tmp2) {
+        h2.push_back(tmp2);
+	}
+    int check[100000] = {0};
+    for(int i = 0 ; i<h1.size(); i++) {
+        for(int j= 0 ; j< h2.size() ; j++) {
+            if(h1[i] == h2[j]) check[i] =1;
+        }
+    }
+    set<string>f;
+    for(int i = 0 ; i<h1.size(); i++) {
+        if(check[i] == 0) f.insert(h1[i]);
+    }
+    for(auto sh:f) cout<<sh<<" ";
+    cout<<endl;
+	}
+}
+CPP0355 - XỬ LÝ VĂN BẢN
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
+
+int main (){
+    string s;
+    int ckeck = 1;
+    while (cin >> s){
+        int n = s.size();
+        for (int i = 0; i < n; i ++){
+            s[i] = tolower(s[i]);
+        }
+        if (ckeck == 1){
+            s[0] -= 32;
+            ckeck = 0;
+        }
+
+        if (s[n - 1] == '.' || s[n - 1] == '!' || s[n - 1] == '?'){
+            s.erase(s.size() - 1);
+            cout << s << "\n";
+            ckeck = 1;
+        }
+        else cout << s << " ";
+
+    }
+}
+CHUẨN HÓA HỌ TÊN
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t = 0 ;
+    cin>>t;
+    while(t--) {
+    int k = 0;
+    string s;
+    cin>>k;
+    cin.ignore();
+    getline(cin,s);
+    for(int i = 0 ; i < s.size() ; i++) {
+        if(isupper(s[i])) s[i] = tolower(s[i]);
+    }
+    stringstream ss(s);
+    string tmp;
+    vector<string> h ;
+    while(ss >> tmp) {
+        h.push_back(tmp);
+    }
+    vector<string>::iterator i = h.begin();
+    for(;i<h.end();i++){
+        (*i)[0] = toupper((*i)[0]);
+    }
+    if(k == 1) {
+    vector<string>::iterator j = h.end() -1;
+    string name = *j;
+    vector<string>::iterator l = h.begin();
+    for(;l<h.end() -1;l++) {
+       name = name + " " + (*l);
+    }
+    cout<<name<<endl;
+    }
+    if(k == 2) {
+    vector<string>::iterator j = h.begin();
+    string name = "";
+    vector<string>::iterator l = h.begin() +1;
+    for(;l<h.end();l++) {
+       name = name  + (*l) + " ";
+    }
+    name = name + *j;
+    cout<<name<<endl;
+    }
+    //for(auto sh1:h) cout<<sh1<<endl;
+    }
+}
+SẮP ĐẶT DÃY SỐ
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int t=0;
+   cin>>t;
+   while(t--){
+    int n = 0;
+    cin>>n;
+    long long a[100000];
+    set<long long>k;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        k.insert(a[i]);
+    }
+    //cout<< k.count(0);
+    for(int i=0;i<n;i++){
+        if(k.count(i) == 1) cout<<i<<" ";
+        else cout<<-1<<" ";
+    }
+    cout<<endl;
+   }
+}
+CPP0422 - SỐ 0 Ở CUỐI DÃY
+#include <iostream>
+#include <stdbool.h>
+using namespace std;
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+    long n;
+    bool check[100000];
+    long long a[100000];
+    cin>>n;
+    int demso0=0;
+    for(int i=1;i<=n;i++){
+        cin>>a[i];
+        if(a[i]==0) {check[i]=0;demso0+=1;}
+        else check[i]=1;}
+    for(int i=1;i<=n;i++){
+       if(check[i]==1){cout<<a[i]<<" ";}}
+    for(int i=1;i<=demso0;i++){
+        cout<<0<<" ";
+    }
+    cout<<endl;
+     }}
+   GHÉP DÃY SỐ
+   #include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int t=0;
+   cin>>t;
+   while(t--){
+    int n = 0,k=0;
+    cin>>k>>n;
+    multiset<int>h;
+    int m=0;
+    for(int i=0;i<k*n;i++) {
+    cin>>m;
+    h.insert(m);
+    }
+    for(auto v:h) cout<<v<<" ";
+    cout<<endl;
+   }
+}
+SẮP XẾP XEN KẼ - 1
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t = 0 ;
+    cin>>t;
+    while(t--) {
+        int n = 0;
+        cin>>n;
+        int a[n+1];
+        for(int i = 0 ; i<n ;i++) cin>>a[i];
+        sort(a,a+n);
+        vector<int>k;
+        int tt = 1;
+        int start = 0 , endd = n-1;
+        while(k.size() != n) {
+            if(tt == 0) {k.push_back(a[start]);tt=1;start++;}
+            else if(tt == 1) {k.push_back(a[endd]);tt=0;endd--;}
+
+        }
+        for(auto s:k) cout<<s<<" ";
+        cout<<endl;
+
+    }
+}
+CPP0412 - SẮP XẾP 0 -1 - 2
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int t=0;
+   cin>>t;
+   while(t--){
+    int n = 0;
+    cin>>n;
+    multiset<int>h;
+    int m=0;
+    for(int i=0;i<n;i++) {
+    cin>>m;
+    h.insert(m);
+    }
+    for(auto v:h) cout<<v<<" ";
+    cout<<endl;
+   }
+}
+SẮP XẾP CHỮ SỐ
+#include<bits/stdc++.h>
+using namespace std;
+int sum (int a, int b) {
+return a+b;
+}
+int main()
+{
+    int t = 0 ;
+    cin>>t;
+    while(t--) {
+        int n = 0;
+        cin>>n;
+        string s = "";
+        string tmp;
+        for(int i = 0 ; i<n ; i++) {
+            cin>>tmp;
+            s = s + tmp;
+        }
+        set<char>h;
+        for(int i = 0 ; i< s.size(); i++){
+            h.insert(s[i]);
+            //cout<<s[i]<<endl;
+        }
+        set<char>::iterator ptr;
+        for(ptr = h.begin() ; ptr != h.end() ; ptr++) {
+            cout<< *ptr<<" ";
+        }
+    cout<<endl;
+    }
+}
+SỐ NHỎ HƠN K
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+int t = 0;
+cin>>t;
+while(t--) {
+    int n = 0, k = 0;
+    cin>>n>>k;
+    int a[n+1];
+    int countsE = 0;
+    for(int i = 0;i<n;i++) {
+        cin>>a[i];
+        if(a[i] <= k) countsE+=1;
+    }
+    int windowE = 0,dem = 0;
+    for(int i = 0 ; i<countsE  ;i++ ) {
+        if(a[i] <=k) dem+=1;
+    }
+    windowE = dem;
+    for(int i = countsE ; i<n;i++) {
+        if(a[i - countsE] <= k) dem -=1;
+        if(a[i] <=k) dem+=1;
+        windowE = max(windowE,dem);
+    }
+    cout<<countsE - windowE<<endl;
+}
+}
+SẮP XẾP CHẴN LẺ
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t = 0 ;
+    cin>>t;
+    while(t--) {
+        int n = 0;
+        cin>>n;
+        int a[n+1];
+        for(int i = 0 ; i<n ;i++) cin>>a[i];
+        sort(a,a+n);
+        vector<int>k;
+        vector<int>k1;
+        int tt = 0;
+        int start = 0 , endd = n-1;
+        while(k.size() + k1.size() != n) {
+            if(tt == 0) {k.push_back(a[start]);tt=1;start++;}
+            else if(tt == 1) {k1.push_back(a[endd]);tt=0;endd--;}
+
+        }
+        int l = k1.size();
+        sort(k1.begin() , k1.end());
+        int tt1 = 0;
+        int dem = 0;
+        for(int i = 0 ; i<n ; i++) {
+            if(i % 2 == 0) { a[i] = *(k.begin()); k.erase(k.begin()); }
+            else { a[i] = *(k1.begin()); k1.erase(k1.begin()); }
+        }
+        for(int i = 0 ; i<n ; i++) {
+            cout<<a[i] <<" ";
+        }
+        cout<<endl;
+
+    }
+}
+ĐẾM CẶP PHẦN TỬ CÓ TỔNG BẰNG K
+#include<bits/stdc++.h>
+using namespace std;
+int sum (int a, int b) {
+return a+b;
+}
+int main()
+{
+    int t = 0 ;
+    cin>>t;
+    while(t--) {
+        int n = 0,k=0;
+        cin>>n>>k;
+        int a[n+1];
+        int dem = 0;
+        for(int i = 0 ; i<n ;i++) cin>>a[i];
+        for(int i = 0 ; i<n ; i++) {
+            for(int j = i+1 ; j<n ; j++ ){
+                if(sum(a[i],a[j]) == k) dem+=1;
+            }
+        }
+    cout<<dem<<endl;
+    }
+}
+CPP0415 - TÍNH TÍCH
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int t=0;
+   cin>>t;
+   while(t--){
+    int n = 0,m=0;
+    cin>>n>>m;
+    long long a[n],b[m];
+    for(int i=0;i<n;i++) {
+    cin>>a[i];}
+    for(int i=0;i<m;i++) {
+    cin>>b[i];}
+    sort(b,b+m);
+    sort(a,a+n);
+    reverse(a,a+n);
+    cout<<a[0]*b[0]<<endl;
+   }
+}
+TRỘN HAI DÃY VÀ SẮP XẾP
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int t=0;
+	cin>>t;
+	while(t--){
+		int n=0,k=0;
+		cin>>n>>k;
+		multiset<int>h;
+		int m=0;
+		for (int i=0;i<n+k;i++){
+			cin>>m;
+			h.insert(m);
+		}
+		for(auto v:h) cout<<v<<" ";
+		cout<<endl;
+	}
+}
+BỔ SUNG PHẦN TỬ
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t = 0 ;
+    cin>>t;
+    while(t--) {
+        int n = 0;
+        cin>>n;
+        set<int>k;
+        int tmp;
+        for(int i = 0 ; i< n ;i++) {
+            cin>>tmp;
+            k.insert(tmp);
+        }
+        set<int>::iterator a = k.end();
+        a--;
+        int v = *a - *(k.begin());
+        v++;
+        cout<<v - k.size()<<endl;
+    }
+}
+SẮP XẾP XEN KẼ - 2
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t = 0 ;
+    cin>>t;
+    while(t--) {
+        int n = 0;
+        cin>>n;
+        int a[n+1];
+        for(int i = 0 ; i<n ;i++) cin>>a[i];
+        sort(a,a+n);
+        vector<int>k;
+        int tt = 1;
+        int start = 0 , endd = n-1;
+        while(k.size() != n) {
+            if(tt == 0) {k.push_back(a[start]);tt=1;start++;}
+            else if(tt == 1) {k.push_back(a[endd]);tt=0;endd--;}
+
+        }
+        for(auto s:k) cout<<s<<" ";
+        cout<<endl;
+
+    }
+}
+NHÂN ĐÔI CẶP SỐ BẰNG NHAU
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t = 0 ;
+    cin>>t;
+    while(t--) {
+        int n = 0;
+        cin>>n;
+        int a[n+1];
+        for(int i = 0 ; i<n ;i++) cin>>a[i];
+        for(int i = 0 ; i<n ;i++) {
+            if(a[i] != 0 && a[i] == a[i+1]) {a[i]*=2;a[i+1] = 0;}
+        }
+        int dem = 0;
+        for(int i = 0 ; i<n ;i++) if( a[i] != 0) {cout<<a[i]<<" ";dem+=1;}
+        for(int i = 1 ; i<= n - dem ; i++) cout << 0<<" ";
+        cout<<endl;
+    }
+}
+SẮP XẾP THEO CHỮ SỐ
+#include<bits/stdc++.h>
+using namespace std;
+bool check(int a, int b) {
+    return to_string(a) + to_string(b) > to_string(b) + to_string(a); }
+int main() {
+    int t = 0, n = 0;
+    cin >> t;
+    while (t--) {
+    cin >> n;
+    int arr[n+1];
+    for (int i = 0; i < n; i++) cin >> arr[i];
+    sort(arr, arr + n, check);
+    for (int i = 0; i < n; i++) cout << arr[i];
+    cout << endl;} }
+ BIẾN ĐỔI DÃY SỐ - 2
+ #include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t = 0 ;
+    cin>>t;
+    while(t--) {
+        int n = 0;
+        cin>>n;
+        int a[n+1] , b[n+1];
+        for(int i = 0 ; i<n ;i++) cin>>a[i];
+        b[0] =a[1] * a[0];
+        b[n-1] =a[n-1] * a[n-2];
+        for(int i = 1 ; i<n-1 ;i++) {
+            b[i] = a[i-1] * a[i+1];
+        }
+
+        for(int i = 0 ; i<n ;i++) cout<<b[i]<<" ";
+        cout<<endl;
+    }
+}
+CPP0420 - SẮP XẾP THEO KHOẢNG CÁCH
+#include<bits/stdc++.h>
+using namespace std;
+int x;
+bool check(int a, int b) {
+    return abs(a-x) < abs(b-x);
+}
+int main() {
+    int t = 0, n = 0;
+    cin >> t;
+    while (t--) {
+    cin >> n >>x;
+    int a[n+1];
+    for (int i = 0; i < n; i++) cin >> a[i];
+    stable_sort(a,a+n,check);
+    for (int i = 0; i < n; i++) cout<<a[i]<<" ";
+    cout<<endl;
+    } }
+   HỢP VÀ GIAO CỦA HAI DÃY SỐ -1
+   #include<bits/stdc++.h> 
+using namespace std; 
+int main(){ 
+    int t; 
+    cin>>t; 
+    while(t--){ 
+    int n,m; 
+    cin>>n>>m; 
+    int a[n],b[m]; 
+    set<int>s; 
+    set<int>ms; 
+    for(int i=1;i<=n;i++){ 
+            cin>>a[i]; s.insert(a[i]); } 
+    int k=0; 
+    for(int i=1;i<=m;i++){ 
+            cin>>b[i]; 
+    s.insert(b[i]); 
+    if(n+i-s.size()!=k){ ms.insert(b[i]); k++; } } 
+    for(int x:s) cout<<x<<" "; 
+    cout<<endl; 
+    for(int y:ms) 
+        cout<<y<<" "; 
+    cout<<endl; } }
+    HỢP VÀ GIAO CỦA HAI DÃY SỐ - 2
+    #include<bits/stdc++.h> 
+using namespace std; 
+int main(){ 
+    int t; 
+    cin>>t; 
+    while(t--){ 
+    int n,m; 
+    cin>>n>>m; 
+    int a[n],b[m]; 
+    set<int>s; 
+    set<int>ms; 
+    for(int i=1;i<=n;i++){ 
+            cin>>a[i]; s.insert(a[i]); } 
+    int k=0; 
+    for(int i=1;i<=m;i++){ 
+            cin>>b[i]; 
+    s.insert(b[i]); 
+    if(n+i-s.size()!=k){ ms.insert(b[i]); k++; } } 
+    for(int x:s) cout<<x<<" "; 
+    cout<<endl; 
+    for(int y:ms) 
+        cout<<y<<" "; 
+    cout<<endl; } }
+    SẮP XẾP LẠI DÃY CON
+    #include <bits/stdc++.h>
+using namespace std ;
+int main(){
+    int t = 0;
+    cin>>t;
+    while(t--) {
+    int n;
+    cin>>n;
+    int a[n+1],b[n+1];
+    for(int i = 0;i<n;i++) {cin>>a[i];b[i] = a[i];}
+    sort(b,b+n);
+    int ha =0 ,hai = 0;
+    for(int i = 0 ; i<n ; i++)  if(a[i] != b[i]) {ha = i;break;}
+    for(int i = n-1 ; i>=0 ; i--)  if(a[i] != b[i]) {hai = i;break;}
+    cout<<ha+1<<" "<<hai+1<<endl;
+    }
+}
+ĐẾM CẶP PHẦN TỬ CÓ HIỆU NHỎ HƠN K
+#include <bits/stdc++.h>
+using namespace std ;
+int main(){
+    int t = 0;
+    cin>>t;
+    while(t--) {
+    int n,k;
+    cin>>n>>k;
+    int a[n+1];
+    for(int i = 0;i<n;i++) cin>>a[i];
+    sort(a,a+n);
+    long long ans = 0;
+    for(int i = 0 ; i<n-1;i++){
+        auto l = lower_bound(a+i+1,a+n,k+a[i]) - 1;
+        int k = l -a;
+        ans+=k -i;
+    }
+    cout<<ans<<endl;}
+}
+TAM GIÁC VUÔNG
+#include <bits/stdc++.h>
+using namespace std ;
+long long first_pos(long long a[] , long long n , long long x) {
+int l = 0 , r = n -1;
+int res = -1;
+while(l<=r){
+int m = (l+r)/2;
+if(a[m] == x) {res = m; r = m-1;}
+else if( a[m] < x) l = m+1;
+else r = m -1;
+}
+return res;
+}
+bool check(long long b[],long long n) {
+for(int i = 0;i<n;i++){
+        for(int j = i+1;j<n;j++) {
+            if(first_pos(b,n,b[i] + b[j]) != -1) return true;
+        }
+    }
+    return false;
+}
+int main(){
+    int t = 0;
+    cin>>t;
+    while(t--) {
+    int n;
+    cin>>n;
+    long long a[n+1],b[n+1];
+    for(int i = 0;i<n;i++) {cin>>a[i];b[i] = a[i]*a[i];}
+    sort(b,b+n);
+    if(check(b,n)) cout<<"YES\n";
+    else cout<<"NO\n";
+    }
+}
+TÌM KIẾM TUẦN TỰ
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int t=0;
+   cin>>t;
+   while(t--){
+    int n = 0,m=0;
+    cin>>n>>m;
+    int a[100000],index=-1;
+    for(int i=1;i<=n;i++) {
+    cin>>a[i];}
+    for(int i=1;i<=n;i++) {
+    if(a[i] == m) {index = i;break;}
+    }
+    cout<<index<<endl;
+   }
+}
+TÌM KIẾM NHỊ PHÂN
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int t=0;
+   cin>>t;
+   while(t--){
+    int n = 0,a=0,m=0;
+    cin>>n>>m;
+    set<int>k;
+    for(int i=1;i<=n;i++) {
+    cin>>a;
+    k.insert(a);
+    }
+    if(k.count(m)==1) cout<<1<<endl;
+    else cout<<-1<<endl;
+
+   }
+}
+SỐ NHỎ NHẤT CÒN THIẾU
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+            int n;
+    cin>>n; int a[n-1];
+    int sum=0;
+    for(int &x:a) cin>>x,sum+=x;
+    cout<<(n+1)*n/2-sum<<endl; } }
+    TÌM KIẾM TRONG DÃY SẮP XẾP VÒNG
+    #include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int t=0;
+   cin>>t;
+   while(t--){
+    int n = 0,a=-1,m=0,u[100000];
+    cin>>n>>m;
+    for(int i=1;i<=n;i++) {
+    cin>>u[i];
+    }
+    for(int i=1;i<=n;i++) {
+    if(u[i] == m) {a=i;break;}
+    }
+    cout<<a<<endl;
+   }
+}
+SỐ NHỎ NHẤT VÀ NHỎ THỨ HAI
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int t=0;
+   cin>>t;
+   while(t--){
+    int n = 0,a=0;
+    cin>>n;
+    set<int>k;
+    for(int i=1;i<=n;i++) {
+    cin>>a;
+    k.insert(a);
+    }
+    if(k.size()<2) cout<<-1<<endl;
+    else{
+            int dem=0;
+        for(auto sh:k) {cout<<sh<<" ";
+        dem+=1;
+        if(dem ==2 ) break;
+        }
+        cout<<endl;
+    }
+   }
+}
+TỔNG GẦN 0 NHẤT
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t = 0;
+    cin>>t;
+    while(t--) {
+        int n = 0;
+        cin>>n;
+        int a[n+1];
+        for(int i = 0 ; i<n; i++) {
+            cin>>a[i];
+        }
+        int minsum = a[0] + a[1];
+        for(int i = 0 ;i<n;i++) {
+            for(int j = i+1;j<n;j++) {
+                if(abs(minsum)>abs(a[i]+a[j])) minsum = a[i]+a[j];
+            }
+        }
+        cout<<minsum<<endl;
+
+
+    }
+}
+LIỆT KÊ K PHẦN TỬ LỚN NHẤT
+#include<bits/stdc++.h> 
+#define ll long long 
+using namespace std; 
+void sapXep(ll a[], ll n){ 
+    for(ll i=0;i<n-1;++i){ 
+        for(ll j=i+1; j<n;++j){ 
+            if(a[i]<a[j]) swap(a[i],a[j]); } } } 
+int main(){ 
+    ios_base::sync_with_stdio(false); 
+    cin.tie(0); 
+    ll T; 
+    cin >> T; 
+    while(T--){ 
+        ll n ,k; 
+        cin >> n >> k; 
+        ll a [n]; 
+        for(ll i=0;i<n;i++) cin >> a[i]; 
+        sapXep(a,n); 
+        for(int i=0;i<k;++i) 
+        cout << a[i] <<" "; cout << endl; } return 0; }
+        ĐẾM SỐ LẦN XUẤT HIỆN
+        #include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int t=0;
+   cin>>t;
+   while(t--){
+    int n = 0,a[100000],m=0,dem=0;
+    cin>>n>>m;
+    for(int i=1;i<=n;i++) {
+    cin>>a[i];
+    }
+    for(int i=1;i<=n;i++) {
+    if(a[i] == m) dem+=1;
+    }
+    if(dem == 0 ) cout<<-1;
+    else cout<<dem;
+    cout<<endl;
+   }
+}
+PHẦN TỬ ĐẦU TIÊN LẶP LẠI
+#include<bits/stdc++.h>
+using namespace std;
+int res(int a[],int n) {
+        bool check[n+1] = {0};
+        for(int i = 0 ;i<n;i++) {
+            for(int j = i+1;j<n;j++) {
+            if(a[i] == a[j]) {check[j] = 1;}
+            }
+        }
+        for(int i = 0 ;i<n;i++) {
+            if(check[i] == 1) return a[i];
+        }
+        return -1;
+}
+int main()
+{
+    int t = 0;
+    cin>>t;
+    while(t--) {
+        int n = 0;
+        cin>>n;
+        int a[n+1];
+        for(int i = 0 ; i<n; i++) {
+            cin>>a[i];
+        }
+        cout<<res(a,n)<<endl;
+
+
+    }
+}
+KHOẢNG CÁCH BẰNG X
+#include<bits/stdc++.h>
+using namespace std;
+int res(int a[],int n,int x) {
+        int dem[100000]= {0};
+        for(int i = 0 ;i<n;i++) dem[a[i]]+=1;
+        for(int i = 0 ;i<n;i++) {
+            if(dem[a[i] - x] > 0) return 1;
+        }
+        return -1;
+}
+int main()
+{
+    int t = 0;
+    cin>>t;
+    while(t--) {
+        int n = 0,x=0;
+        cin>>n>>x;
+        int a[n+1];
+        for(int i = 0 ; i<n; i++) {
+            cin>>a[i];
+        }
+        cout<<res(a,n,x)<<endl;
+
+
+    }
+}
+NHỎ NHẤT THỨ K
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t; cin >> t;
+	while (t--){
+		int n, k;
+		cin >> n >>k;
+		int a[n];
+		for(int i=0;i<n;i++)
+			cin>>a[i];
+		sort(a,a+n);
+		cout<<a[k-1]<<endl;
+	}
+}
+PHẦN TỬ CHUNG CỦA BA DÃY SỐ
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int t = 0;
+    cin>>t;
+    while(t--) {
+        int n1 =0, n2=0,n3=0;
+        cin>>n1>>n2>>n3;
+        long long a[n1+1],b[n2+1],c[n3+1];
+        bool check1[100000] = {0};
+        bool check2[100000] = {0};
+        for(int i = 0;i<n1;i++) cin>>a[i];
+        for(int i = 0;i<n2;i++) cin>>b[i];
+        for(int i = 0;i<n3;i++) cin>>c[i];
+        vector<int>res;
+        int i = 0,j=0,l=0;
+        while(i<n1 && j<n2 && l <n3) {
+            if(a[i] == b[j] && a[i] == c[l]) {res.push_back(a[i]);i++;j++;l++;}
+            else if(a[i]<=b[j] && a[i]<=c[l]) i++;
+            else if(b[j]<=a[i] && b[j] <= c[l]) j++;
+            else l++;
+        }
+        if(res.size() == 0) cout<<"-1\n";
+        else {
+            for(int x:res) cout<<x<<" ";
+            cout<<endl;
+        }
+    }
+}

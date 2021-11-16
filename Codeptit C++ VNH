@@ -4054,3 +4054,216 @@ int main() {
         }
     }
 }
+CẤU TRÚC PHÂN SỐ
+#include <bits/stdc++.h>
+using namespace std;
+struct PhanSo {
+  long long tu;
+  long long mau;
+};
+void nhap(struct PhanSo &p) {
+cin>>p.tu>>p.mau;
+}
+void rutgon(struct PhanSo &p) {
+long long c = __gcd(p.tu,p.mau);
+p.tu = p.tu/c;
+p.mau = p.mau/c;
+}
+void in(struct PhanSo &p) {
+cout<<p.tu<<"/"<<p.mau;
+}
+int main() {
+	struct PhanSo p;
+	nhap(p);
+	rutgon(p);
+	in(p);
+	return 0;
+}
+TÍNH TỔNG HAI PHÂN SỐ
+#include <bits/stdc++.h>
+using namespace std;
+struct PhanSo {
+  long long tu;
+  long long mau;
+};
+void nhap(struct PhanSo &p) {
+cin>>p.tu>>p.mau;
+}
+void rutgon(struct PhanSo &p) {
+long long c = __gcd(p.tu,p.mau);
+p.tu = p.tu/c;
+p.mau = p.mau/c;
+}
+PhanSo tong(struct PhanSo &p,struct PhanSo &q) {
+long long bcnnqp = ((p.mau)*(q.mau))/__gcd(p.mau,q.mau);
+PhanSo darutgon;
+darutgon.tu =(bcnnqp/p.mau)*p.tu + (bcnnqp/q.mau)*q.tu;
+darutgon.mau = bcnnqp;
+rutgon(darutgon);
+return darutgon;
+}
+void in(struct PhanSo &p) {
+cout<<p.tu<<"/"<<p.mau;
+}
+int main() {
+	struct PhanSo p,q;
+	nhap(p); nhap(q);
+	PhanSo t = tong(p,q);
+	in(t);
+	return 0;
+}
+CẤU TRÚC ĐIỂM
+#include <bits/stdc++.h>
+using namespace std;
+struct Point{
+
+     double x, y;
+
+};
+void input(struct Point &a) {
+cin>>a.x>>a.y;
+}
+double distance(struct Point &a,struct Point &b) {
+return sqrt((double)pow(a.x-b.x,2)+(double)pow(a.y-b.y,2));
+}
+int main(){
+    struct Point A, B;
+    int t;
+    cin>>t;
+    while(t--){
+        input(A); input(B);
+        cout << fixed << setprecision(4) << distance(A,B) << endl;
+    }
+    return 0;
+}
+CẤU TRÚC THÍ SINH
+#include <bits/stdc++.h>
+using namespace std;
+struct ThiSinh{;
+    string hoten;
+    string ngaysinh;
+    double diem1;
+    double diem2;
+    double diem3;
+};
+void nhap(struct ThiSinh &a) {
+    getline(cin,a.hoten);
+    getline(cin,a.ngaysinh);
+    cin>>a.diem1>>a.diem2>>a.diem3;
+}
+void in(struct ThiSinh &a) {
+    double tong = a.diem1+a.diem2+a.diem3;
+    cout<<a.hoten<<" "<<a.ngaysinh<<" "<<fixed<<setprecision(1)<<tong;
+}
+int main(){
+    struct ThiSinh A;
+    nhap(A);
+    in(A);
+    return 0;
+}
+CẤU TRÚC SINH VIÊN
+#include <bits/stdc++.h>
+using namespace std;
+struct SinhVien{;
+    string hoten;
+    string lop;
+    string ngaysinh;
+    double diem;
+};
+string load(string s) {
+    int l = s.size();
+    for(int i = 0 ;i<l;i++) if(s[i] == '/') s[i]=' ';
+    stringstream ss(s);
+    string tmp;
+    string s1="";
+    while(ss >> tmp) {
+        if(tmp.size() == 1) tmp = '0' + tmp;
+        s1 = s1 +' '+ tmp;
+    }
+    for(int i = 1 ;i<l;i++) if(s1[i] == ' ') s1[i]='/';
+    return s1;
+}
+void nhap(struct SinhVien &a) {
+    getline(cin,a.hoten);
+    getline(cin,a.lop);
+    getline(cin,a.ngaysinh);
+    cin>>a.diem;
+}
+void in(struct SinhVien &a) {
+    cout<<"B20DCCN001 ";
+    cout<<a.hoten<<" "<<a.lop<<load(a.ngaysinh)<<" "<<fixed<<setprecision(2)<<a.diem;
+}
+int main(){
+    struct SinhVien a;
+    nhap(a);
+    in(a);
+    return 0;
+}
+CPP0505 - CẤU TRÚC NHÂN VIÊN
+#include <bits/stdc++.h>
+using namespace std;
+struct NhanVien{;
+    string hoten;
+    string gioitinh;
+    string ngaysinh;
+    string place;
+    string sdt;
+    string date;
+};
+
+void nhap(struct NhanVien &a) {
+    getline(cin,a.hoten);
+    getline(cin,a.gioitinh);
+    getline(cin,a.ngaysinh);
+    getline(cin,a.place);
+    getline(cin,a.sdt);
+    getline(cin,a.date);
+}
+void in(struct NhanVien &a) {
+    cout<<"00001 ";
+    cout<<a.hoten<<" "<<a.gioitinh<<" "<<a.ngaysinh<<" "<<a.place<<" "<<a.sdt<<" "<<a.date;
+}
+int main(){
+    struct NhanVien a;
+    nhap(a);
+    in(a);
+    return 0;
+}
+CẤU TRÚC SINH VIÊN
+
+#include <bits/stdc++.h>
+using namespace std;
+struct SinhVien{;
+    string hoten;
+    string lop;
+    string ngaysinh;
+    float diem;
+};
+string load(string s) {
+    int l = s.size();
+    for(int i = 0 ;i<l;i++) if(s[i] == '/') s[i]=' ';
+    stringstream ss(s);
+    string tmp;
+    string s1="";
+    while(ss >> tmp) {
+        if(tmp.size() == 1) tmp = '0' + tmp + '/';
+        s1 = s1 + tmp;
+    }
+    return s1;
+}
+void nhapThongTinSV(struct SinhVien &a) {
+    getline(cin,a.hoten);
+    cin>>a.lop;
+    cin>>a.ngaysinh;
+    cin>>a.diem;
+}
+void inThongTinSV(struct SinhVien &a) {
+    cout<<"N20DCCN001 ";
+    cout<<a.hoten<<" "<<a.lop<<" "<<load(a.ngaysinh)<<" "<<fixed<<setprecision(2)<<a.diem;
+}
+int main(){
+    struct SinhVien a;
+    nhapThongTinSV(a);
+    inThongTinSV(a);
+    return 0;
+}
